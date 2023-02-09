@@ -26,6 +26,7 @@ class _MyWidgetState extends State<MyWidget> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     debugPrint('No: ${widget.number} didChangeDependencies');
+    // number = 2;
   }
 
   @override
@@ -44,6 +45,7 @@ class _MyWidgetState extends State<MyWidget> {
   void didUpdateWidget(covariant MyWidget oldWidget) {
     super.didUpdateWidget(oldWidget);
     debugPrint('No: ${widget.number} didUpdateWidget');
+
     if (oldWidget.number != widget.number) {
       number = widget.number;
       debugPrint('Number has changed');
@@ -53,6 +55,7 @@ class _MyWidgetState extends State<MyWidget> {
   @override
   Widget build(BuildContext context) {
     debugPrint('No: ${widget.number} build');
+    // debugPrint('Number: $number build');
     return TextButton(
         onPressed: () {
           debugPrint('No: ${widget.number} setState');

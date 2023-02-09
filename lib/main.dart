@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_stateful_cycle/life_cycle_page.dart';
+import 'package:flutter_stateful_cycle/next_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Flutter Stateful Lifecycle'),
     );
   }
 }
@@ -44,6 +45,18 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        actions: [
+          IconButton(
+              // onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+              //       builder: (context) => const NextPage(),
+              //     )),
+              onPressed: () => Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(
+                    builder: (context) => const NextPage(),
+                  ),
+                  (route) => false),
+              icon: const Icon(Icons.skip_next))
+        ],
       ),
       // body: ListView.builder(
       //   itemCount: 100,
